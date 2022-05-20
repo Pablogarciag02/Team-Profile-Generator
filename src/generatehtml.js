@@ -31,7 +31,7 @@ const newIntern = function (intern) {
         <div class="bg-gray-200 p-3 py-10 px-10 rounded-lg ">
             <p class ="bg-white p-3 my-1 rounded-lg">ID: ${intern.id}</p>
                     
-            <p class ="bg-white p-3 my-1 rounded-lg">Email: <a href="mailto:${intern.mail}">${intern.mail}</a></p>
+            <p class ="bg-white p-3 my-1 rounded-lg">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
              
             <p class ="bg-white p-3 my-1 rounded-lg">School: ${intern.school}</p>
         </div>
