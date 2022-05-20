@@ -1,3 +1,4 @@
+//Manager team card that contains template literals specifying where the information from inquirer will go.
 const newManager = function (manager) {
     return `
     <div class ="m-5 border-2 border-slate-800 rounded-lg">
@@ -17,6 +18,7 @@ const newManager = function (manager) {
     </div>`
 } 
 
+//Intern team card that contains template literals specifying where the information from inquirer will go.
 const newIntern = function (intern) {
     return `
     <div class ="m-5 border-2 border-slate-800 rounded-lg">
@@ -36,6 +38,7 @@ const newIntern = function (intern) {
     </div>`
 }
 
+//Engineer team card that contains template literals specifying where the information from inquirer will go.
 const newEngineer = function (engineer) {
     return `
     <div class ="m-5 border-2 border-slate-800 rounded-lg">
@@ -55,26 +58,30 @@ const newEngineer = function (engineer) {
     </div>`
 }
 
+//Generate html function will grab all data and with a for loop will place it on an array
 generatehtml = (data) => {
     pageArray = [];
 
+    //For each string of employee added we will define the role
     for (let i = 0; i < data.length; i++) {
         const employee = data [i];
         const role = employee.getRole();
     
-
+        //if the role is manager we call the function newManager that contains the template literals from the Manager Class and will then push this into the pageArray within the function
         if(role === "Manager") {
             const managerInfo = newManager(employee);
 
             pageArray.push(managerInfo);
         }
 
+        //if the role is Intern we call the function newIntern that contains the template literals from the Intern Class and will then push this into the pageArray within the function
         if(role === "Intern") {
             const internInfo = newIntern(employee);
 
             pageArray.push(internInfo);
         }
 
+        //if the role is Engineer we call the function newEngineer that contains the template literals from the Engineer Class and will then push this into the pageArray within the function
         if(role === "Engineer") {
             const engineerInfo = newEngineer(employee);
 
@@ -82,14 +89,17 @@ generatehtml = (data) => {
         }
     }
 
+    //this wil join all the information added to the Array that had all the code from above.
     const teamCards = pageArray.join("")
 
+    //createTeam is a function called newTeamPage that which has the constant teamCards which contains the joined array
     const createTeam = newTeamPage(teamCards);
     return createTeam;
     
 }
 
-
+//Template literal that contains the full html page and calls the function newTeamPage that will call teamCards which contain the array of all employees added into the function. 
+//With template literals we call ${teamCards} that contains the array with each different employee card: Engineer, Manager, Intern
 const newTeamPage = function (teamCards) {
     return `
     <!DOCTYPE html>
@@ -119,4 +129,5 @@ const newTeamPage = function (teamCards) {
 </html>`
 }
 
+//Exporting code to use in index.js
 module.exports = generatehtml;
