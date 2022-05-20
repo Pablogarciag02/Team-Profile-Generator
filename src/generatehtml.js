@@ -50,7 +50,7 @@ const newEngineer = function (engineer) {
             
             <p class ="bg-white p-3 my-1 rounded-lg">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
     
-            <p class ="bg-white p-3 my-1 rounded-lg">Github:<a href="${engineer.github}"> ${engineer.github}</a></p>
+            <p class ="bg-white p-3 my-1 rounded-lg">Github:<a href="${engineer.githubLink}"> ${engineer.github}</a></p>
         </div>
     </div>`
 }

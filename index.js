@@ -97,6 +97,23 @@ const employeePrompt = () => {
         },
 
         {
+            type: "input",
+            name:"githubLink",
+            message: "Enter the Github Profile link for the Employee",
+            when:(input) => input.role === "Engineer",
+            validate: githubLink => {
+                if (githubLink) {
+                    return true;
+                }
+                else{ 
+                    return false;
+                }
+            }
+
+        },
+
+
+        {
         type: "input",
         name: "school",
         message: "Please enter the interns school name",
@@ -119,7 +136,7 @@ const employeePrompt = () => {
         }
     ])
     .then(employeeInfo => {
-        let {role, name, id, email, officeNumber, github, school, addEmployees} = employeeInfo;
+        let {role, name, id, email, officeNumber, github, githubLink, school, addEmployees} = employeeInfo;
         let teamMember
 
         if(role === "Manager") {
@@ -128,7 +145,7 @@ const employeePrompt = () => {
         }
 
         else if (role === "Engineer") {
-            teamMember = new Engineer(name, id, email, github);
+            teamMember = new Engineer(name, id, email, github, githubLink);
             console.log(teamMember);
         }
 
