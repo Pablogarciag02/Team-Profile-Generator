@@ -1,14 +1,20 @@
+//Calls in the inquirer and filesystem : fs
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+//imports the js file that contains the template for the html to be generated
 const generatehtml = require("./src/generatehtml")
 
+//Importing each class 
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
+//an array is created
 const team = [];
 
+//Our first question determines the role: Employee, Manager, Intern
+//Depending on the role the user will get different questions in the following way => when engineer ask this. when intern ask this. when manager ask this
 const employeePrompt = () => {
     return inquirer.prompt ([
         {
@@ -135,6 +141,10 @@ const employeePrompt = () => {
         default: "false"
         }
     ])
+    //Grab all the paramaters that can be added. and depending on the role, will take in certain paramters
+    //if Manager = name, id, email, officenumber
+    //if Engineer = name, id, email, github, githublink
+    //if intern = name, id, email, school
     .then(employeeInfo => {
         let {role, name, id, email, officeNumber, github, githubLink, school, addEmployees} = employeeInfo;
         let teamMember
@@ -154,8 +164,10 @@ const employeePrompt = () => {
             console.log(teamMember)
         }
 
+        //Adds each team memebr string into the team array created at the start of the page
         team.push(teamMember);
 
+        //if we want to add more employees we return the prompt again else we just return the team array
         if (addEmployees) {
             return employeePrompt(team);
         }
@@ -165,7 +177,7 @@ const employeePrompt = () => {
     })
 };
 
-
+//grabs a data and adds it into index.html within the dist folder
 const writeFile = data => {
     fs.writeFile("./dist/index.html", data, err => {
         if(err){
@@ -178,6 +190,7 @@ const writeFile = data => {
     })
 };
 
+//Start employee prompt, then grab generate generatehtml to then write the file containing the information that the user added through the questionare.
 employeePrompt()
   .then(team => {
     return generatehtml(team);
