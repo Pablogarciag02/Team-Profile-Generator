@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const generateHTML = require("./src/generatehtml")
+const generatehtml = require("./src/generatehtml")
 
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
-const Intern = require("./lib/intern")
+const Intern = require("./lib/intern");
 
 const team = [];
 
@@ -163,10 +163,10 @@ const writeFile = data => {
 
 employeePrompt()
   .then(team => {
-    return generateHTML(team);
+    return generatehtml(team);
   })
-  .then(pageHTML => {
-    return writeFile(pageHTML);
+  .then(htmlpage => {
+    return writeFile(htmlpage);
   })
   .catch(err => {
  console.log(err);
