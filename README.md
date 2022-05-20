@@ -4,7 +4,7 @@
 https://github.com/Pablogarciag02/Team-Profile-Generator
 
 ## Youtube Link
-
+[Youtube](https://www.youtube.com/watch?v=eosl0gK0cGM&ab_channel=PabloGarcia)
 ## About this Project
 -It is crucial for every team to establish who does what and what their role is.
 
@@ -68,3 +68,4 @@ SOFTWARE.
 Allows the user to create a team profile webpage, that takes in several diffeent options = `Engineer, Manager, Intern`
 
 ## Contribution
+Feel free to fork and use this project for your personal use if you are a manager. Or if you want to make it better you can ask for a pull request 
