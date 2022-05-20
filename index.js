@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const generateHTML = require("./lib/generatehtml")
+const generateHTML = require("./src/generatehtml")
 
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
